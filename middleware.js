@@ -9,6 +9,7 @@ module.exports.isLoggedIn = (req,res,next)=>{
         req.flash('error', 'You must be signed in!!!');
         return res.redirect('/login');
     }
+    console.log('Is logged in check passed');
     next();
 }
 
@@ -27,6 +28,7 @@ module.exports.validateCampground = (req,res,next)=>{
         const msg = error.details.map(el=>el.message).join(',');
         throw new ExpressError(msg, 400);
     } else {
+        console.log('Campground validated');
         next();
     }
 }
