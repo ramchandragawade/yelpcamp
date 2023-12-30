@@ -18,7 +18,6 @@ module.exports = {
 
     // Add New campground form submission route(POST)
     createCamp: async(req,res,next)=>{
-        console.log('Create Camp req: ');
         const geoData = await geoCoder.forwardGeocode({
             query: req.body.campground.location,
             limit: 1
@@ -27,9 +26,7 @@ module.exports = {
         newCamp.images = req.files.map(f=>({url: f.path, filename: f.filename}));
         newCamp.author = req.user._id;
         newCamp.geometry = geoData.body.features[0].geometry;
-        console.log('Geodata generated:',newCamp);
         await newCamp.save();
-        console.log('save done');
         req.flash('success','Successfully added a new campground!');
         res.redirect('/campgrounds/'+newCamp._id);
     },
