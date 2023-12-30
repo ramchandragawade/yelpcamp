@@ -1,0 +1,67 @@
+<% layout('layouts/boilerplate') %>
+<div class="container justify-content-center align-items-center my-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title text-center text-muted fw-semibold">Edit Campground</h5>
+                    <form action="/campgrounds/<%= camp._id%>?_method=PUT" method="POST" novalidate 
+                        enctype="multipart/form-data" class="validate-form">
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Title</label>
+                            <input class="form-control" value="<%= camp.title %>" type="text" name="campground[title]" id="title" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>    
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="location">Location</label>
+                            <input class="form-control" type="text" value="<%= camp.location %>" name="campground[location]" required id="location">
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div> 
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="price">Price</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="price-label">$</span>
+                                <input type="text" value="<%= camp.price %>" class="form-control" id="price" name="campground[price]" aria-label="Dollar amount (with dot and two decimal places)" aria-describedby="price-label" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="description">Description</label>
+                            <textarea class="form-control" name="campground[description]" id="description"required rows="5"><%=camp.description%></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="image">Add More Images</label>
+                            <input class="form-control" type="file" name="image" id="" multiple >
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div> 
+                        </div>
+                        <div class="row mb-3">
+                            <% camp.images.forEach(function(img,i){ %>
+                                <div class="col-lg-auto col-xxl-4 align-content-center">
+                                    <input type="checkbox" name="deleteImages[]" id="image-<%= i %>" value="<%= img.filename %>">
+                                        <label class="form-check-label" for="image-<%= i %>">Delete?
+                                            <img src="<%=img.thumbnail%>" alt="" class="img-thumbnail m-2">
+                                        </label>
+                                </div>
+                            <% }) %>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-success">Update Campground</button>
+                        </div>
+                    </form>
+                    <a class="btn btn-secondary align-self-end" href="/campgrounds/<%= camp._id %>"><p class="fw-bolder d-inline">&larr;</p> Back to <%= camp.title %></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
