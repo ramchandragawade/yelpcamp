@@ -1,5 +1,5 @@
 <% layout('layouts/boilerplate') %>
-<% if(process.env.SHOW_CLUSTER_MAP == 'true') { %>
+<% if(process.env.SHOW_CLUSTER_MAP == 'YES') { %>
 <div id='map' class="cluster-map"></div>
 <% } %>
 <h1>Campgrounds</h1>
@@ -28,4 +28,6 @@
     const mapboxtoken = '<%- process.env.MAPBOX_TOKEN %>';
     const campGeoData = {features:<%- JSON.stringify(campgrounds.map(itm=>itm.geoData)) %>};
 </script>
-<script src="/javascripts/indexMapCluster.js"></script>
+<% if(process.env.SHOW_CLUSTER_MAP == 'YES') { %>
+    <script src="/javascripts/indexMapCluster.js"></script>    
+<% } %>
