@@ -1,5 +1,7 @@
 <% layout('layouts/boilerplate') %>
+<% if(process.env.SHOW_CLUSTER_MAP == 'true') { %>
 <div id='map' class="cluster-map"></div>
+<% } %>
 <h1>Campgrounds</h1>
 <% for(let camp of campgrounds) { %>
     <div class="card mb-3">
