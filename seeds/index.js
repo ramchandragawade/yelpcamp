@@ -35,8 +35,8 @@ const seedDB = async() =>{
         const firstImg = getRandomImg();
         const secondImg = getRandomImg(firstImg.index);
         const camp = new Campground({
-            // server one author: '65904905bee7c811580d0835',
-            author: '658dd7d3130d4755e816d007',
+            author: '65904905bee7c811580d0835',
+            // author: '658dd7d3130d4755e816d007',
             location: `${cityObj.city}, ${cityObj.state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
             images: [
