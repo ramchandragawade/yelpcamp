@@ -12,16 +12,26 @@
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="mb-auto">
             <div>
-                <h3 class="float-md-start mb-0">YelpCamp!</h3>
-                <nav class="nav nav-masthead justify-content-center float-md-end">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    <a class="nav-link" href="/campgrounds">Campgrounds</a>
-                    <% if(!currentUser) { %>
-                    <a class="nav-link" href="/login">Login</a>
-                    <a class="nav-link" href="/register">Register</a>
-                    <% } else { %>
-                    <a class="nav-link" href="/logout">Logout</a>
-                    <% } %>
+                <nav class="navbar navbar-expand-md d-inline">
+                    <div class="container-fluid">
+                        <h3 class="navbar-brand float-md-start mb-0 text-white fs-3" >YelpCamp!</h3>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                            <div class="navbar-nav float-md-end">
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                <a class="nav-link" href="/campgrounds">Campgrounds</a>
+                                <% if(!currentUser) { %>
+                                <a class="nav-link" href="/login">Login</a>
+                                <a class="nav-link" href="/register">Register</a>
+                                <% } else { %>
+                                <a class="nav-link" href="/logout">Logout</a>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </div>
         </header>
