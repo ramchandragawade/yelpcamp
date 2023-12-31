@@ -1,5 +1,17 @@
 module.exports.sampleImgs = [
     {
+        url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1704033890/YelpCamp/seeds/sqsc7zpubys5bp90ylhy.jpg',
+        filename: 'YelpCamp/seeds/sqsc7zpubys5bp90ylhy'
+    },
+    {
+        url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1704033805/YelpCamp/seeds/znre1s1xqvxu7nhipfwg.jpg',
+        filename: 'YelpCamp/seeds/znre1s1xqvxu7nhipfwg'
+    },
+    {
+        url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1704033800/YelpCamp/seeds/qxg38cw26mwwi4wzhfzd.jpg',
+        filename: 'YelpCamp/seeds/qxg38cw26mwwi4wzhfzd'
+    },
+    {
         url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1703881878/YelpCamp/seeds/rsaixb2wvqbhz8m38wnk.jpg',
         filename: 'YelpCamp/seeds/rsaixb2wvqbhz8m38wnk'
     },
@@ -18,14 +30,6 @@ module.exports.sampleImgs = [
     {
         url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1703881876/YelpCamp/seeds/nmjp8nmpxu79kytfsuuv.jpg',
         filename: 'YelpCamp/seeds/nmjp8nmpxu79kytfsuuv'
-    },
-    {
-        url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1703881876/YelpCamp/seeds/fewo6gu5m8vsaxc5lbzr.jpg',
-        filename: 'YelpCamp/seeds/fewo6gu5m8vsaxc5lbzr'
-    },
-    {
-        url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1703881876/YelpCamp/seeds/oykvzrwrlommttkwgt2x.jpg',
-        filename: 'YelpCamp/seeds/oykvzrwrlommttkwgt2x'
     },
     {
         url: 'https://res.cloudinary.com/duhlvrita/image/upload/v1703881876/YelpCamp/seeds/hwric5e7akfcrhakp06a.jpg',
