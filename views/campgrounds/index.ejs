@@ -5,15 +5,15 @@
 <h1 class="fs-2 text-white fst-italic mb-3">Campgrounds</h1>
 <% for(let camp of campgrounds) { %>
     <div class="card mb-3">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="row ">
+            <div class="col-md-4 mx-0 my-auto text-center text-md-start">
                 <% if(camp.images.length>0) {%>
                 <img src="<%= camp.images[0].indexThumb%>" class="img-fluid" alt="...">
                 <% } else { %>
                 <img src="https://res.cloudinary.com/duhlvrita/image/upload/v1703880870/YelpCamp/reserved/dson2cwx1vlffxyn1qeg.jpg" class="img-fluid" alt="...">
                 <% } %>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 text-center my-auto text-md-start">
                 <div class="card-body">
                     <h5 class="card-title"><%= camp.title %></h5>
                     <p class="card-text"><%= camp.description %></p>
