@@ -68,7 +68,10 @@ module.exports = {
         const deletedImgs = req.body.deleteImages;
         if(deletedImgs && deletedImgs.length>0){
             for(let filename of deletedImgs){
-                await cloudinary.uploader.destroy(filename);
+                // TODO: Temp added if condition to avoid deleting the seeds imgs
+                if(!img.filename.includes('/seeds/')) {
+                    await cloudinary.uploader.destroy(filename);
+                }
             }
             await updatedCamp.updateOne({ $pull: { images: { filename: { $in: deletedImgs } } } });
         }
