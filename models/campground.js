@@ -13,7 +13,7 @@ ImageSchema.virtual('thumbnail').get(function(){
 });
 
 ImageSchema.virtual('indexThumb').get(function(){
-    return this.url.replace('/upload','/upload/ar_16:9,c_crop,g_center,q_35');
+    return this.url.replace('/upload','/upload/w_1000/ar_16:9,c_crop,g_center,q_20');
 });
 
 ImageSchema.virtual('campThumb').get(function(){
