@@ -25,9 +25,17 @@ module.exports = {
             beforePg = pageNumber-2;
             afterPg = pageNumber+2>lastPage ? lastPage : pageNumber+2;
         }
-        const allCampgrouds = await Campground.find({});
-        const campgrounds = await Campground.find({}).sort({_id:1}).skip((pageNumber-1)*numberOfItemsPerPage).limit(numberOfItemsPerPage);
-        res.render('campgrounds/index', {allCampgrouds, campgrounds, beforePg, pageNumber, afterPg });
+
+        // since we need allCamps to show on map fetching all-
+        if(process.env.SHOW_CLUSTER_MAP==='YES') {
+            const allCampgrouds = await Campground.find({}).sort({_id:1});
+            const campgrounds = allCampgrouds.slice((pageNumber-1)*numberOfItemsPerPage, pageNumber*numberOfItemsPerPage);
+            res.render('campgrounds/index', {allCampgrouds, campgrounds, beforePg, pageNumber, afterPg });    
+        } else {
+            // If we don't have to show map-
+            const campgrounds = await Campground.find({}).sort({_id:1}).skip((pageNumber-1)*numberOfItemsPerPage).limit(numberOfItemsPerPage);
+            res.render('campgrounds/index', {allCampgrouds:campgrounds, campgrounds, beforePg, pageNumber, afterPg });
+        }
     },
 
     // New campground form route
