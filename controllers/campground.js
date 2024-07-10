@@ -25,8 +25,9 @@ module.exports = {
             beforePg = pageNumber-2;
             afterPg = pageNumber+2>lastPage ? lastPage : pageNumber+2;
         }
+        const allCampgrouds = await Campground.find({});
         const campgrounds = await Campground.find({}).sort({_id:1}).skip((pageNumber-1)*numberOfItemsPerPage).limit(numberOfItemsPerPage);
-        res.render('campgrounds/index', { campgrounds, beforePg, pageNumber, afterPg });
+        res.render('campgrounds/index', {allCampgrouds, campgrounds, beforePg, pageNumber, afterPg });
     },
 
     // New campground form route

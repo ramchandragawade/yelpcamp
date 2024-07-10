@@ -35,7 +35,7 @@
   </nav>
 <script>
     const mapboxtoken = '<%- process.env.MAPBOX_TOKEN %>';
-    const campGeoData = {features:<%- JSON.stringify(campgrounds.map(itm=>itm.geoData)) %>};
+    const campGeoData = {features:<%- JSON.stringify(allCampgrouds.map(itm=>itm.geoData)) %>};
 </script>
 <% if(process.env.SHOW_CLUSTER_MAP == 'YES') { %>
     <script src="/javascripts/indexMapCluster.js"></script>    
