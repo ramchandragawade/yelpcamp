@@ -7,8 +7,26 @@ module.exports = {
 
     // Campgroung index route
     index : async(req,res)=>{
-        const campgrounds = await Campground.find({});
-        res.render('campgrounds/index', {campgrounds});
+        const numberOfItemsPerPage = 10;
+        const totalDocs = await Campground.countDocuments();
+        const lastPage = Math.ceil(totalDocs/numberOfItemsPerPage);
+        let pageNumber = parseInt(req.query.p) || 1;
+        let beforePg, afterPg;
+        if(pageNumber>lastPage){
+            pageNumber = lastPage;
+        }
+        if(pageNumber<5) {
+            beforePg = 1;
+            afterPg = 5;
+        } else if(pageNumber>lastPage-2) {
+            beforePg = lastPage-4;
+            afterPg = lastPage;
+        } else {
+            beforePg = pageNumber-2;
+            afterPg = pageNumber+2>lastPage ? lastPage : pageNumber+2;
+        }
+        const campgrounds = await Campground.find({}).sort({_id:1}).skip((pageNumber-1)*numberOfItemsPerPage).limit(numberOfItemsPerPage);
+        res.render('campgrounds/index', { campgrounds, beforePg, pageNumber, afterPg });
     },
 
     // New campground form route

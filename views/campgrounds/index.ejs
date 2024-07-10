@@ -24,6 +24,15 @@
         </div>
     </div>
 <% } %>
+<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link <%= pageNumber === 1 && 'disabled' %> " href="/campgrounds/?p=<%= pageNumber-1 %>">Previous</a></li>
+        <% for (var i=beforePg; i <=afterPg; i++ ) { %>
+            <li class="page-item"><a class="page-link <%= i===pageNumber && 'active' %>" href="/campgrounds/?p=<%= i %>"><%= i %></a></li>
+        <% } %>
+      <li class="page-item"><a class="page-link <%= pageNumber === afterPg && 'disabled' %>" href="/campgrounds/?p=<%= pageNumber+2 %>">Next</a></li>
+    </ul>
+  </nav>
 <script>
     const mapboxtoken = '<%- process.env.MAPBOX_TOKEN %>';
     const campGeoData = {features:<%- JSON.stringify(campgrounds.map(itm=>itm.geoData)) %>};
